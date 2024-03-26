@@ -7,17 +7,19 @@ export default function BoardInsertPage() {
         <div className={styles.content}>
             {/* 밑에 */}
             <div className={styles.border}>
-                <div className={styles.title}>
-                    <p>게시물 등록</p>
-                </div>
-                <div className={styles.information}>
-                    <div>
-                        <label htmlFor="name">이름</label>
-                        <input id="name" type="text" placeholder="이름을 적어주세요"/>
+                <div className={styles.border_content}>
+                    <div className={styles.title}>
+                        <p>게시물 등록</p>
                     </div>
-                    <div>
-                        <label htmlFor="password">비밀번호</label>
-                        <input id="password" type="password" placeholder="비밀번호를 입력해주세요"/>
+                    <div className={styles.user}>
+                        <div className={styles.name}>
+                            <label htmlFor="name">작성자</label>
+                            <input id="name" type="text" placeholder="이름을 적어주세요"/>
+                        </div>
+                        <div className={styles.password}>
+                            <label htmlFor="password">비밀번호</label>
+                            <input id="password" type="password" placeholder="비밀번호를 입력해주세요"/>
+                        </div>
                     </div>
                     <div>
                         <p>제목</p>

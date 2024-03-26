@@ -1,14 +1,18 @@
 .content {
     width: 100%;
     height: 1847px;
+    padding-top: 40px;
 }
 .content > .border {
     width: 1200px;
     height: 100%;
     margin: 0 auto;
     background-color: #FFF;
-    box-shadow: 1 1 1 1 gray;
-    background-color: blue;
+    box-shadow: 3px 3px 3px 3px gray;
+    
+}
+.border_content {
+    padding: 0 80px;
 }
 .title {
     width: 100%;
@@ -21,12 +25,23 @@
     font-weight: 700;
     font-size: 36px;
 }
-.information {
+.user {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background: red;
+}
+.user div {
+    width: 486px;
+    height: 92px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 20px;
-    background: red;
+}
+.user div 
+.user div > input {
+    width: 100%;
+    height: 52px;
 }
