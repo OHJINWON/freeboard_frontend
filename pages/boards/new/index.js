@@ -63,6 +63,9 @@ export default function BoardInsertPage() {
                             <label htmlFor="사진">사진</label>
                         </div>
                     </div>
+                    <div className={styles.insert_btn_box}>
+                        <button>등록하기</button>
+                    </div>
                 </div>
             </div>
         </div>
