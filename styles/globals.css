@@ -2,7 +2,7 @@
 /* html5 용 리셋*/
 /* reset.css */
 html, body{width: 100%; height: 100%;}
-body, div, dl, dt, dd, ul ,li, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, th, small, b, i, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, time, mark, audio, video {margin: 0; padding: 0;}
+body, div, dl, dt, dd, ul ,li, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, th, small, b, i, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, time, mark, audio, video {margin: 0; padding: 0; box-sizing: border-box;}
 
 article,aside,details,figcaption,figure,footer,header,menu,nav,section,video{display: block;}
 
