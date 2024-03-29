@@ -45,10 +45,16 @@
 }
 .user div {
     width: 486px;
-    height: 92px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+}
+.user div .errorMsg {
+    position: absolute;
+    bottom: 0;
+    color: red;
 }
 .user > div > label {
     width: 100%;
@@ -69,10 +75,11 @@
 }
 .title {
     width: 100%;
-    height: 92px;
+    height: 140px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding-top: 20px;
 }
 .title > p {
@@ -89,28 +96,35 @@
     padding-left: 10px;
     box-sizing: border-box;
 }
+.title .errorMsg {
+    color: red;
+}
 .content {
     width: 100%;
-    height: 100%;
+    height: 570px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding-top: 20px;
 }
-.content > p{
+.content > .title_01 {
     width: auto;
-    height: 24px;
+    height: auto;
     font-weight: 500;
     line-height: 23.68px;
     padding-bottom: 20px;
 }
 .content > textarea {
     width: 100%;
-    height: 400px;
+    height: 480px;
     line-height: 23.68px;
     padding: 15px;
     border: 1px solid rgba(189, 189, 189, 1);
     box-sizing: border-box;
+}
+.content > .errorMsg {
+    color: red;
 }
 .address_box {
     width: 100%;
@@ -189,10 +203,11 @@
 }
 .flie_box {
     width: 282px;
-    height: 118px;
+    height: 138px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: 20px;
 }
 .flie_box > p {
     font-weight: 500;

@@ -1,7 +1,62 @@
+import { useState } from "react"
 import styles from "./Board.module.css"
 
 export default function BoardInsertPage() {
     
+    const [name, setName] = useState("")
+    const [errName, setErrName] = useState("")
+    const [password, setPassword] = useState("")
+    const [errPassword, setErrPasswrod] = useState("")
+    const [title, setTitle] = useState("")
+    const [errTitle, setErrTitle] = useState("")
+    const [content, setContent] = useState("")
+    const [errContent, setErrContent] = useState("")
+
+    function onChangeName(e) {
+        setName(e.target.value)
+        if(name !== "") {
+            setErrName("")
+        }
+    }
+
+    function onChangePassword(e) {
+        setPassword(e.target.value)
+        if(password !== "") {
+            setErrPasswrod("")
+        }
+    }
+
+    function onChangeTitle(e) {
+        setTitle(e.target.value)
+        if(title !== "") {
+            setErrTitle("")
+        }
+    }
+
+    function onChangeContent(e) {
+        setContent(e.target.value)
+        if(content !== "") {
+            setErrContent("")
+        }
+    }
+
+    function onClickBtn() {
+        if(!name) {
+            setErrName("작성자를 작성해주세요.")
+        }
+        if (!password) {
+            setErrPasswrod("비밀번호를 입력해주세요.")
+        }
+        if (!title) {
+            setErrTitle("제목을 입력해주세요.")
+        }
+        if (!content) {
+            setErrContent("내용을 입력해주세요.")
+        }
+        if(name && password && title && content) {
+            alert("게시글이 등록되었습니다.")
+        }
+    }
 
     return (
         <div className={styles.board_box}>
@@ -14,20 +69,24 @@ export default function BoardInsertPage() {
                     <div className={styles.user}>
                         <div className={styles.name}>
                             <label htmlFor="name">작성자</label>
-                            <input className={styles.boardInput} id="name" type="text" placeholder="이름을 적어주세요"/>
+                            <input className={styles.boardInput} id="name" type="text" placeholder="이름을 적어주세요" value={name} onChange={onChangeName}/>
+                            <p className={styles.errorMsg}>{errName}</p>
                         </div>
                         <div className={styles.password}>
                             <label htmlFor="password">비밀번호</label>
-                            <input className={styles.boardInput} id="password" type="password" placeholder="비밀번호를 입력해주세요"/>
+                            <input className={styles.boardInput} id="password" type="password" placeholder="비밀번호를 입력해주세요" value={password} onChange={onChangePassword}/>
+                            <p className={styles.errorMsg}>{errPassword}</p>
                         </div>
                     </div>
                     <div className={styles.title}>
-                        <p>제목</p>
-                        <input className={styles.boardInput} type="text" placeholder="제목을 입력해주세요"/>
+                        <p className={styles.title_01}>제목</p>
+                        <input className={styles.boardInput} type="text" placeholder="제목을 입력해주세요" value={title} onChange={onChangeTitle}/>
+                        <p className={styles.errorMsg}>{errTitle}</p>
                     </div>
                     <div className={styles.content}>
                         <p>내용</p>
-                        <textarea placeholder="내용을 작성해주세요"></textarea>
+                        <textarea placeholder="내용을 작성해주세요" value={content} onChange={onChangeContent}></textarea>
+                        <p className={styles.errorMsg}>{errContent}</p>
                     </div>
                     <div className={styles.address_box}>
                         <p>주소</p>
@@ -64,7 +123,7 @@ export default function BoardInsertPage() {
                         </div>
                     </div>
                     <div className={styles.insert_btn_box}>
-                        <button>등록하기</button>
+                        <button onClick={onClickBtn}>등록하기</button>
                     </div>
                 </div>
             </div>
