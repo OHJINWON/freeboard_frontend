@@ -44,13 +44,13 @@ export default function BoardInsertPage() {
         if(!name) {
             setErrName("작성자를 작성해주세요.")
         }
-        if (!password) {
+        if(!password) {
             setErrPasswrod("비밀번호를 입력해주세요.")
         }
-        if (!title) {
+        if(!title) {
             setErrTitle("제목을 입력해주세요.")
         }
-        if (!content) {
+        if(!content) {
             setErrContent("내용을 입력해주세요.")
         }
         if(name && password && title && content) {
