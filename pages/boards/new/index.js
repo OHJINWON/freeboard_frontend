@@ -1,5 +1,18 @@
 import { useState } from "react"
 import styles from "./Board.module.css"
+import { gql, useMutation } from "@apollo/client"
+
+const CREATE_BOARD = gql`
+    mutation createBoard($createBoardInput: CreateBoardInput!){
+        createBoard(createBoardInput: $createBoardInput){
+            writer,
+            title,
+            contents,
+            _id
+        }
+    }
+`
+
 
 export default function BoardInsertPage() {
     
@@ -40,7 +53,9 @@ export default function BoardInsertPage() {
         }
     }
 
-    function onClickBtn() {
+    const [createBoard] = useMutation(CREATE_BOARD)
+
+    const onClickBtn = async () => {
         if(!name) {
             setErrName("작성자를 작성해주세요.")
         }
@@ -54,10 +69,21 @@ export default function BoardInsertPage() {
             setErrContent("내용을 입력해주세요.")
         }
         if(name && password && title && content) {
+            const result = await createBoard({
+                variables:{
+                    createBoardInput:{
+                        writer: name,
+                        password: password,
+                        title: title,
+                        contents: content
+                    }
+                }
+            })
             alert("게시글이 등록되었습니다.")
+            console.log(result)
         }
     }
-
+    // 제목, 내용, 비밀번호, 작정자 필수
     return (
         <div className={styles.board_box}>
             {/* 밑에 */}
