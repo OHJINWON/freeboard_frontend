@@ -25,28 +25,28 @@ export default function BoardInsertPage() {
     const [content, setContent] = useState("")
     const [errContent, setErrContent] = useState("")
 
-    function onChangeName(e) {
+    const onChangeName = (e) => {
         setName(e.target.value)
         if(name !== "") {
             setErrName("")
         }
     }
 
-    function onChangePassword(e) {
+    const onChangePassword = (e) => {
         setPassword(e.target.value)
         if(password !== "") {
             setErrPasswrod("")
         }
     }
 
-    function onChangeTitle(e) {
+    const onChangeTitle = (e) => {
         setTitle(e.target.value)
         if(title !== "") {
             setErrTitle("")
         }
     }
 
-    function onChangeContent(e) {
+    const onChangeContent = (e) => {
         setContent(e.target.value)
         if(content !== "") {
             setErrContent("")
