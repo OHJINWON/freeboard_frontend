@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styles from "./Board.module.css"
 import { gql, useMutation } from "@apollo/client"
+import { useRouter } from "next/router"
 
 const CREATE_BOARD = gql`
     mutation createBoard($createBoardInput: CreateBoardInput!){
@@ -24,6 +25,8 @@ export default function BoardInsertPage() {
     const [errTitle, setErrTitle] = useState("")
     const [content, setContent] = useState("")
     const [errContent, setErrContent] = useState("")
+
+    const router = useRouter()
 
     const onChangeName = (e) => {
         setName(e.target.value)
@@ -80,6 +83,8 @@ export default function BoardInsertPage() {
                 }
             })
             console.log(result)
+            alert("등록하셨습니다.")
+            router.push(`./new/detail/` + result.data.createBoard._id)
         }
     }
     // 제목, 내용, 비밀번호, 작정자 필수
