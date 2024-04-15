@@ -24,3 +24,13 @@ hr{display: none;}
 li img, dd img{vertical-align: top;}
 img{max-width: 100%;}
 /* width값이 %로 된 이미지들이 브라우저 폭이 줄 경우 비례를 맞추어 줄도록 사용하기 위해서 사용 */
+
+@font-face {
+    font-family: "NotoSansCJKkr-Black";
+    src: url("/static/fonts/NotoSansCJKkr-Black.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'NotoSansCJKkr-Black', sans-serif;
+}

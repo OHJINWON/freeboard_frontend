@@ -72,19 +72,24 @@ export default function BoardInsertPage() {
             setErrContent("내용을 입력해주세요.")
         }
         if(name && password && title && content) {
-            const result = await createBoard({
-                variables:{
-                    createBoardInput:{
-                        writer: name,
-                        password: password,
-                        title: title,
-                        contents: content
+            try {
+                const result = await createBoard({
+                    variables:{
+                        createBoardInput:{
+                            writer: name,
+                            password,
+                            title,
+                            contents: content
+                            // key==value 같은면 shorthand-propety로 인해서 숨길수 있다.
+                        }
                     }
-                }
-            })
-            console.log(result)
-            alert("등록하셨습니다.")
-            router.push(`./new/detail/` + result.data.createBoard._id)
+                })
+                console.log(result)
+                alert("등록하셨습니다.")
+                router.push(`./` + result.data.createBoard._id)
+            } catch (error) {
+                alert(error.message)
+            }
         }
     }
     // 제목, 내용, 비밀번호, 작정자 필수
@@ -121,14 +126,14 @@ export default function BoardInsertPage() {
                     <div className={styles.address_box}>
                         <p>주소</p>
                         <div className={styles.address}>
-                            <input className={styles.address_number} type="number" readOnly/>
+                            <input className={styles.address_number} type="number"/>
                             <div>
                                 <input className={styles.address_serch_btn} type="button" value="우편번호 검색"/>
                             </div>
                         </div>
                         <div className={styles.address_box_input}>    
-                            <input type="text" readOnly/>
-                            <input type="text" readOnly/>
+                            <input type="text"/>
+                            <input type="text"/>
                         </div>
                     </div>
                     <div className={styles.youtube_box}>

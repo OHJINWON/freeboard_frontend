@@ -1,0 +1,162 @@
+.board_box {
+    width: 100%;
+    height: 100%;
+    padding: 80px 0 100px;
+}
+.board {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #FFF;
+    box-shadow: 0px 0px 10px gray;
+}
+.board > div {
+    width: 100%;
+    height: 100%;
+    padding: 80px 70px;
+}
+.user_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(189, 189, 189, 1);
+    padding-bottom: 24px;
+    position: relative;
+}
+/* .user_box::after {
+    content: url("../../../../public/addressBox.png");
+    position: absolute;
+    right: 16px;
+    bottom: 70px;
+} */
+
+.user_box > .user_box_left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.user_profile {
+    width: 56px;
+    height: 56px;
+    /* background: url("../../../../public/profile.png") no-repeat center; */
+}
+.user_box > .user_box_left > .user_left_imfor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+.user_left_imfor > p:nth-child(1) {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35.52px;
+}
+.user_left_imfor > p:nth-child(2) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23.68px;
+    color: rgba(130, 130, 130, 1);
+}
+.user_box_right {
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.address {
+    width: 376px;
+    height: 76px;
+    position: absolute;
+    right: 16px;
+    bottom: 70px;
+    padding: 7px 10px;
+}
+.address > div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    /* bottom: -50px; */
+}
+.address > div > p {
+    font-weight: 400;
+    line-height: 23.68px;
+    color: #FFF;
+    z-index: 99999;
+    /* font-family: 'NotoSansCJKkr-Black', sans-serif; */
+    font-size: 16px;
+}
+.address > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* .address > div::before {
+    position: absolute;
+    content: "서울특별시 영등포구 양산로 200 (영등포동5가, 영등포시장역) 영등포 타임스퀘어 2층";
+    text-align: right;
+} */
+/* .address > div {
+    padding: 10px;
+    position: absolute;
+} */
+/* .address > div > p {
+    position: absolute;
+    top: 0;
+} */
+.titleBox {
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+}
+.titleBox > p{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 53.28px;
+}
+.imgBox {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+}
+.imgBox > img {
+    width: 100%;
+}
+.contentBox {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+}
+.contentBox > p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23.68px;
+}
+.videoBox {
+    width: 100%;
+    height: auto;
+    padding-bottom: 80px;
+}
+.videoBox > div {
+    width: 486px;
+    height: 240px;
+    margin: 0 auto;
+}
+.likeBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.likeBox > div {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
