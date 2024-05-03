@@ -1,8 +1,9 @@
 import BoardDetailUI from "./BoardDetail.presenter";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { FETCH_BOARD } from './BoardDetail.queries' 
+import { DELETE_BOARD } from './BoardDetail.queries'
 
 export default function BoardDetail() {
     
@@ -15,8 +16,25 @@ export default function BoardDetail() {
             boardId: router.query.id
         }
     })
+
+    const [deleteBoard] = useMutation(DELETE_BOARD)
+
+    const onClickDelete = async() => {
+        try {
+            const result = await deleteBoard ({
+                variables: {
+                    boardId: router.query.id
+                }
+
+            })
+            // console.log("result", result)
+            alert("삭제하셨습니다.")
+            router.push("/boards/list")
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
     
-    // console.log("fetchBoard", data)
     const { title, writer, contents, createdAt } = data?.fetchBoard || {};
     
     const onMouseOverLocation = () => {
@@ -24,5 +42,5 @@ export default function BoardDetail() {
         console.log("setShow(!show)", show)
     }
 
-    return <BoardDetailUI show={show} title={title} writer={writer} contents={contents} createdAt={createdAt} onMouseOverLocation={onMouseOverLocation}/>
+    return <BoardDetailUI show={show} title={title} writer={writer} contents={contents} createdAt={createdAt} onMouseOverLocation={onMouseOverLocation} onClickDelete={onClickDelete}/>
 }

@@ -223,7 +223,7 @@
 .flie_box > .file_box_upload > input {
     width: 78px;
     height: 78px;
-    background: url("/public/upload.png") no-repeat;
+    background: url("../../../../../public/upload.png") no-repeat;
     overflow: hidden;
 }
 .flie_box > .file_box_upload > input[type="file"] {
@@ -275,7 +275,7 @@
     padding-top: 150px;
     padding-bottom: 100px;
 }
-.insert_btn_box > button {
+/* .insert_btn_box > button {
     width: 179px;
     height: 52px;
     padding: 14px 60px;
@@ -283,4 +283,4 @@
     line-height: 23.68px;
     background: rgba(255, 214, 0, 1);
     border: none;
-}
+} */

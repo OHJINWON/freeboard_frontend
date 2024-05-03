@@ -1,6 +1,7 @@
 import style from "./detail.module.css";
+import { getDate } from "../../../../commons/libraries/utils"
 
-export default function BoardDetailUI({show, title, writer, contents, createdAt, onMouseOverLocation}) {
+export default function BoardDetailUI({show, title, writer, contents, createdAt, onMouseOverLocation, onClickDelete}) {
 
     return(
         <div className={style.board_box}>
@@ -13,7 +14,7 @@ export default function BoardDetailUI({show, title, writer, contents, createdAt,
                             </div>
                             <div className={style.user_left_imfor}>
                                 <p>{writer}</p>
-                                <p>Date : {createdAt}</p>
+                                <p>Date : {getDate(createdAt)}</p>
                             </div>
                         </div>
                         <div className={style.user_box_right}>
@@ -56,6 +57,14 @@ export default function BoardDetailUI({show, title, writer, contents, createdAt,
                     </div>
                 </div>
             </div>
+            <div className={style.btn_list}>
+                <div>
+                    <button>목록으로</button>
+                    <button>수정하기</button>
+                    <button onClick={onClickDelete}>삭제하기</button>
+                </div>
+            </div>
+            
         </div>
     )
 }

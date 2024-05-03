@@ -1,4 +1,5 @@
 import styles from "./Board.module.css"
+import {Button} from "./BoardWrite.style"
 export default function BoardWriteUI({name, password, title, content, onChangeName, onChangePassword, onChangeTitle, onChangeContent, onClickBtn, errName, errPassword, errTitle, errContent}) {
 
     return(
@@ -66,7 +67,7 @@ export default function BoardWriteUI({name, password, title, content, onChangeNa
                         </div>
                     </div>
                     <div className={styles.insert_btn_box}>
-                        <button onClick={onClickBtn}>등록하기</button>
+                        <Button onClick={onClickBtn} name={name} password={password} title={title} content={content}>등록하기</Button>
                     </div>
                 </div>
             </div>

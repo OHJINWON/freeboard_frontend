@@ -1,0 +1,125 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.containerBox {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerBox > div {
+    width: 100%;
+    height: 100%;
+}
+.containerBox > div > .titleBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px 0;
+}
+.containerBox > div > .titleBox > h1{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42.19px;
+}
+.containerBox > div > .imageBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.containerBox > div > .imageBox > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 282px;
+    height: 257px;
+    border-radius: 25px 25px;
+    box-shadow: 0 5px 5px 0px gainsboro;
+}
+.containerBox > div > .imageBox .image {
+    width: 100%;
+    height: 120px;
+    background: url("../../../../../public/board_image.png") no-repeat;
+}
+.containerBox > div > .imageBox .title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 20px 20px;
+}
+.containerBox > div > .imageBox .aa {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 5px 20px;
+}
+.containerBox > div > .imageBox .aa > .column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.column_right {
+    width: 27px;
+    height: 100%;
+}
+.column > .column_writer::after {
+    width: 100%;
+    content: url("../../../../../public/name_profile.png");
+}
+.column > .column_createdAt {
+    width: 100%;
+    height: 10px;
+    background: url("../../../../../public/DDate.png") no-repeat;
+}
+.column_right > .column_img {
+    width: 27px;
+    height: 100%;
+    background: url("../../../../../public/like.png") no-repeat;
+}
+.serch_box {
+    width: 100%;
+    height: 100%;
+    background: yellow;
+    padding: 60px 0 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.serch_box_title:focus {
+    outline: none;
+}
+.serch_box_title::placeholder {
+    height: 24px;
+    font-weight: 400;
+    line-height: 23.68px;
+    color: black;
+    font-size: 16px;
+}
+.serch_box > .serch_box_title {
+    width: 776px;
+    height: 52px;
+    background: rgba(189, 189, 189, 1);
+    border-radius: 10px 10px;
+    padding: 0 10px;
+    border: none;
+    font-weight: 400;
+    line-height: 23.68px;
+    color: black;
+    font-size: 16px;
+}
