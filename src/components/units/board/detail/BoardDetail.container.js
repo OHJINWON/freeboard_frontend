@@ -16,7 +16,7 @@ export default function BoardDetail() {
             boardId: router.query.id
         }
     })
-
+    
     const [deleteBoard] = useMutation(DELETE_BOARD)
 
     const onClickDelete = async() => {
@@ -27,7 +27,7 @@ export default function BoardDetail() {
                 }
 
             })
-            // console.log("result", result)
+            console.log("result", result)
             alert("삭제하셨습니다.")
             router.push("/boards/list")
         } catch (error) {
@@ -42,5 +42,9 @@ export default function BoardDetail() {
         console.log("setShow(!show)", show)
     }
 
-    return <BoardDetailUI show={show} title={title} writer={writer} contents={contents} createdAt={createdAt} onMouseOverLocation={onMouseOverLocation} onClickDelete={onClickDelete}/>
+    const onClickMove = () => {
+        router.push(`/boards/${router.query.id}/edit`)
+    }
+
+    return <BoardDetailUI show={show} onClickMove={onClickMove} title={title} writer={writer} contents={contents} createdAt={createdAt} onMouseOverLocation={onMouseOverLocation} onClickDelete={onClickDelete}/>
 }

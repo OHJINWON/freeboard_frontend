@@ -1,0 +1,29 @@
+import style from "./write.module.css"
+export default function BoardCommentWirteUI({onClickComment, onChangeWrite, onChangePassword, onChangeRating, onChangeContents, write, password, rating, contents}) {
+
+    return (
+        <div className={style.board}>
+            <div className={style.board_box}>
+                <div className={style.board_box_comment}>
+                    <p>댓글</p>
+                </div>
+                <div className={style.board_box_content}>
+                    <div>
+                        <input className={style.board_box_content_input} type="text" onChange={onChangeWrite} value={write} placeholder="작성자"/>
+                        <input className={style.board_box_content_input} type="text" onChange={onChangePassword} value={password} placeholder="비밀번호"/>
+                        <input className={style.board_box_content_input} type="text" onChange={onChangeRating} value={rating} placeholder="별표"/>
+                    </div>
+                </div>
+                <div className={style.board_box_textarea}>
+                    <div>
+                        <textarea onChange={onChangeContents} value={contents} placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."/>
+                        <div>
+                            <p>0/100</p>
+                            <button onClick={onClickComment}>등록하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

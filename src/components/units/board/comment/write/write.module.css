@@ -1,0 +1,110 @@
+.board {
+    width: 100%;
+    height: 100%;
+}
+.board_box {
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+}
+.board_box_comment {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.board_box_comment > p::before {
+    content: url("../../../../../../public/img/rate_review.png");
+    position: relative;
+    bottom: -4px;
+}
+.board_box_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+.board_box_content > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-basis: 624px;
+}
+.board_box_content > div > input {
+    width: 180px;
+    height: 52px;
+    border: 1px solid rgb(189, 189, 189, 1);
+    padding-left: 20px;
+}
+.board_box_content_input::placeholder {
+    width: 500px;
+    font-size: 16px;
+    line-height: 23.68px;
+    color: rgba(130, 130, 130, 1);
+}
+.board_box_textarea {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+}
+.board_box_textarea > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.board_box_textarea > div > textarea {
+    width: 100%;
+    height: 161px;
+    border: 1px solid rgb(189, 189, 189, 1);
+    padding: 10px 0 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23.68px;
+    resize: none;
+}
+.board_box_textarea > div > textarea::placeholder { 
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23.68px;
+    color: rgb(189, 189, 189, 1);
+}
+.board_box_textarea > div > textarea:focus {
+    outline: none;
+}
+.board_box_textarea > div > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(189, 189, 189, 1);
+    border-top: none;
+}
+.board_box_textarea > div > div > p {
+    width: auto;
+    height: 24px;
+    font-weight: 500;
+    line-height: 23.68px;
+    color: rgb(189, 189, 189, 1);
+    padding-left: 15px;
+}
+.board_box_textarea > div > div > button {
+    width: 91px;
+    height: 52px;
+    padding: 14px 16px;
+    background: #000;
+    font-weight: 500;
+    line-height: 23.68px;
+    color: #FFF;
+    border: none;
+}   
