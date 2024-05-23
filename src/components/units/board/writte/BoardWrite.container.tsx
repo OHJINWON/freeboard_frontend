@@ -1,52 +1,57 @@
-import { useState } from "react"
+import { ChangeEvent, useState } from "react"
 import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
 import BoardWriteUI from "./BoardWrite.presenter"
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
+import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types"
+import { BoardWriteProps } from "./BoardWrite.types"
 
-export default function BoardWrite({isEdit, data}) {
-    
-    const [name, setName] = useState("")
-    const [errName, setErrName] = useState("")
-    const [password, setPassword] = useState("")
-    const [errPassword, setErrPasswrod] = useState("")
-    const [title, setTitle] = useState("")
-    const [errTitle, setErrTitle] = useState("")
-    const [content, setContent] = useState("")
-    const [errContent, setErrContent] = useState("")
 
+export default function BoardWrite(props: BoardWriteProps) {
     const router = useRouter()
+    const [isActive, setActive] = useState(false)
 
-    const onChangeName = (e) => {
+    const [name, setName] = useState<string>("")
+    const [errName, setErrName] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [errPassword, setErrPasswrod] = useState<string>("")
+    const [title, setTitle] = useState<string>("")
+    const [errTitle, setErrTitle] = useState<string>("")
+    const [content, setContent] = useState<string>("")
+    const [errContent, setErrContent] = useState<string>("")
+
+    const [createBoard] = useMutation<Pick<IMutation, "createBoard">, IMutationCreateBoardArgs>(CREATE_BOARD)
+    const [updateBoard] = useMutation<Pick<IMutation, "updateBoard">, IMutationUpdateBoardArgs>(UPDATE_BOARD)    
+
+    const onChangeName = (e:ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value)
         if(name !== "") {
             setErrName("")
         }
     }
 
-    const onChangePassword = (e) => {
+    const onChangePassword = (e:ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value)
         if(password !== "") {
             setErrPasswrod("")
         }
     }
 
-    const onChangeTitle = (e) => {
+    const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.target.value)
         if(title !== "") {
             setErrTitle("")
         }
     }
 
-    const onChangeContent = (e) => {
+    const onChangeContent = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setContent(e.target.value)
         if(content !== "") {
             setErrContent("")
         }
     }
 
-    const [createBoard] = useMutation(CREATE_BOARD)
-    const [updateBoard] = useMutation(UPDATE_BOARD)
+   
 
     const onClickBtn = async () => {
         if(!name) {
@@ -74,11 +79,12 @@ export default function BoardWrite({isEdit, data}) {
                         }
                     }
                 })
+                
                 alert("등록하셨습니다.")
                 console.log(result)
-                router.push(`./` + result.data.createBoard._id)
+                router.push(`./` + result.data?.createBoard._id)
             } catch (error) {
-                alert(error.message)
+                alert(error)
             }
         }
     }
@@ -96,31 +102,36 @@ export default function BoardWrite({isEdit, data}) {
             return;
         }
         if(password) {
-            const updateBoardInput={}
+            const updateBoardInput: IUpdateBoardInput = {}
     
             if (title) updateBoardInput.title = title
             if (content) updateBoardInput.contents = content
             try {
+                if(typeof router.query.id !== "string") {
+                    alert("시스템에 문제가 있습니다.")
+                    return
+                }
                 const result = await updateBoard({
                     variables: {
                         boardId: router.query.id,
-                        password: password,
+                        password,
                         updateBoardInput
-                    }
+                    },
                 })
                 console.log("result 수정", result)
                 alert("수정하셨습니다.")
                 router.push(`/boards/${router.query.id}`)
             } catch (error) {
-                console.log(error.message)
+                if(error instanceof Error) alert(error.message)
             }
         }
         
     }
 
     return <BoardWriteUI 
-        isEdit={isEdit} 
-        data={data} 
+        isEdit={props.isEdit} 
+        isActive= {isActive}
+        data={props.data} 
         name={name} 
         password={password} 
         title={title} 

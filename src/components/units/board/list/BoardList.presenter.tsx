@@ -1,7 +1,8 @@
 import styles from "./BoardList.module.css"
 import {getDate} from "../../../../commons/libraries/utils"
-export default function BoardListUI ({data, onClickDetail}) {
-
+import { IBoardListUI } from "./BoardList.types"
+export default function BoardListUI (props:IBoardListUI) {
+    console.log(props)
     return(
         <div className={styles.container}>
             <div className={styles.containerBox}>
@@ -11,9 +12,10 @@ export default function BoardListUI ({data, onClickDetail}) {
                     </div>
                     <div className={styles.imageBox}>
                         {
-                            data?.fetchBoards.slice(0, 4).map(data => 
+                            
+                            props.data?.fetchBoards.slice(0, 4).map(data => 
                                 <div key={data._id}>
-                                    <div className={styles.image}>{data.image}</div>
+                                    <div className={styles.image}>{data.images}</div>
                                     <div className={styles.title}>{data.title}</div>
                                     <div className={styles.aa}>
                                         <div className={styles.column}>
@@ -44,8 +46,8 @@ export default function BoardListUI ({data, onClickDetail}) {
                         </thead>
                         <tbody>
                         {
-                            data?.fetchBoards.map(data => 
-                                <tr key={data._id} id={data._id} onClick={onClickDetail}>
+                            props.data?.fetchBoards.map(data => 
+                                <tr key={data._id} id={data._id} onClick={props.onClickDetail}>
                                     <td> 
                                         <p>{data._id}</p>
                                     </td>
@@ -69,13 +71,3 @@ export default function BoardListUI ({data, onClickDetail}) {
         </div>
     )
 }
-
-// {
-    // data?.fetchBoards.map(data => 
-    //     <div key={data._id}>
-    //         <div> 
-    //             <p>{data.writer}</p>
-    //         </div>
-    //     </div>
-    // )
-// }

@@ -2,13 +2,14 @@ import Image from "next/image"
 import style from "./list.module.css"
 import profile from "../../../../../../public/profile.png"
 import {getDate} from "../../../../../commons/libraries/utils"
+import { IBoardCommentUI } from "./BoardComment.types"
 
-export default function BoardCommentListUI ({data}) {
+export default function BoardCommentListUI (props: IBoardCommentUI) {
     return (
         <div className={style.board}>
             <div className={style.board_box}>
                 {
-                    data?.fetchBoardComments.map(list => 
+                    props.data?.fetchBoardComments.map(list => 
                         <div key={list._id} className={style.board_box_comment}>
                             <div className={style.comment_profile}>
                                 <Image src={profile}/>
@@ -28,7 +29,8 @@ export default function BoardCommentListUI ({data}) {
                                 </div>
                             </div>         
                             <div className={style.comment_btn}>
-                                수정버튼 및 삭제버튼
+                                <button>수정</button>
+                                <button onClick={props.onClickDelete} id={list._id}>삭제</button>
                             </div>
                         </div>
                     )
