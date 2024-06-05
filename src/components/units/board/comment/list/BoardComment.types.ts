@@ -4,4 +4,5 @@ import { IBoardComment, IQuery } from "../../../../../commons/types/generated/ty
 export interface IBoardCommentUI {
     data?: Pick<IQuery,"fetchBoardComments">
     onClickDelete: (e: MouseEvent<HTMLButtonElement>) => void
+    onClickPrompt: () => void
 }

@@ -3,10 +3,11 @@ import { gql } from "@apollo/client"
 export const CREATE_BOARD = gql`
 mutation createBoard($createBoardInput: CreateBoardInput!){
     createBoard(createBoardInput: $createBoardInput){
-        writer,
-        title,
-        contents,
+        writer
+        title
+        contents
         _id
+        youtubeUrl
     }
 }
 `
@@ -17,6 +18,12 @@ export const UPDATE_BOARD = gql`
             writer
             title
             contents
+            youtubeUrl
+            boardAddress {
+                zipcode
+                address
+                addressDetail
+            }
         }
     }
 `

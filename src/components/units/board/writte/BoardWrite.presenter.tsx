@@ -1,9 +1,12 @@
+import DaumPostcodeEmbed from "react-daum-postcode"
 import styles from "./Board.module.css"
 import {Button} from "./BoardWrite.style"
 import { IBoardWritePropsUI } from "./BoardWrite.types"
+import { Modal } from "antd"
 
 export default function BoardWriteUI(props: IBoardWritePropsUI) {
-
+console.log("props", props)
+console.log("props.data?.fetchBoard",props.data?.fetchBoard)
     return(
         <div className={styles.board_box}>
             {/* 밑에 */}
@@ -44,19 +47,26 @@ export default function BoardWriteUI(props: IBoardWritePropsUI) {
                     <div className={styles.address_box}>
                         <p>주소</p>
                         <div className={styles.address}>
-                            <input className={styles.address_number} type="number"/>
+                            <input className={styles.address_number} type="text" readOnly={true} defaultValue={props.data ? props.data?.fetchBoard.boardAddress.zipcode : props.address.zonecode}/>
                             <div>
-                                <input className={styles.address_serch_btn} type="button" value="우편번호 검색"/>
+                                <input onClick={props.onClickModal} className={styles.address_serch_btn} type="button" value="우편번호 검색"/>
+                                {
+                                    props.isOpen && (
+                                        <Modal title="주소검색" open={true} onOk={props.onToggleModal} onCancel={props.onToggleModal}>
+                                            <DaumPostcodeEmbed onComplete={props.handleModal}/>
+                                        </Modal>
+                                    )
+                                }
                             </div>
                         </div>
                         <div className={styles.address_box_input}>    
-                            <input type="text"/>
-                            <input type="text"/>
+                            <input type="text" readOnly={props.data ? true : false} defaultValue={props.address.address}/>
+                            <input type="text" onChange={props.onChangeAddressDetail} defaultValue={props.data ? props.data?.fetchBoard.boardAddress.addressDetail : props.addressDetail}/>
                         </div>
                     </div>
                     <div className={styles.youtube_box}>
                         <p>유튜브</p>
-                        <input type="text" placeholder="링크를 작성해주세요"/>
+                        <input type="text" placeholder="링크를 작성해주세요" onChange={props.onChangeYoutubeUrl} defaultValue={props.data?.fetchBoard.youtubeUrl}/>
                     </div>
                     <div className={styles.flie_box}>
                         <p>사진 첨부</p>

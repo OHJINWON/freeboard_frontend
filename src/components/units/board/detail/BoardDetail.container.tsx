@@ -9,20 +9,28 @@ import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } fro
 export default function BoardDetail() {
     const router = useRouter()
     const [show, setShow] = useState<boolean>(false)
+    // const [youtubeUrl, setYoutubeUri] = useState<string>("")
 
-    if(!router || typeof router.query.id !== "string") return<></>
+    // if(router.isReady || typeof router.query.id !== "string") return<></>
 
     const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
         variables: {
-            boardId: router.query.id
+            boardId: router.query.id as string
         }
     })
+
+    // if (data?.fetchBoard.youtubeUrl) {
+    //     const youtubeUrl: string = data?.fetchBoard.youtubeUrl
+    //     const url: string = youtubeUrl
+    //     const videoId: string = url.split('v=')[1]
+    //     setYoutubeUri(videoId)
+    // }
     
     console.log("상세보기:",data?.fetchBoard)
     const [deleteBoard] = useMutation<Pick<IMutation, "deleteBoard">, IMutationDeleteBoardArgs>(DELETE_BOARD)
 
     const onClickDelete = async() => {
-        if(!router ||typeof router.query.id !== "string") return<></>
+        if(!router.isReady ||typeof router.query.id !== "string") return<></>
         try {
             const result = await deleteBoard ({
                 variables: {

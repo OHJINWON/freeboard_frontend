@@ -4,7 +4,9 @@ import { useRouter } from "next/router"
 import BoardWriteUI from "./BoardWrite.presenter"
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types"
-import { BoardWriteProps } from "./BoardWrite.types"
+import { IAddress, BoardWriteProps } from "./BoardWrite.types"
+import { Address } from "react-daum-postcode"
+
 
 
 export default function BoardWrite(props: BoardWriteProps) {
@@ -20,6 +22,15 @@ export default function BoardWrite(props: BoardWriteProps) {
     const [content, setContent] = useState<string>("")
     const [errContent, setErrContent] = useState<string>("")
 
+    const [isOpen, setIsopen] = useState<boolean>(false)
+    const [address, setAddress] = useState<IAddress>(
+        {
+            address: "",
+            zonecode: "",
+        }
+    )
+    const [addressDetail, setAddressDetail] = useState<string>("")
+    const [youtubeUrl, setYoutubeUri] = useState<string>("")
     const [createBoard] = useMutation<Pick<IMutation, "createBoard">, IMutationCreateBoardArgs>(CREATE_BOARD)
     const [updateBoard] = useMutation<Pick<IMutation, "updateBoard">, IMutationUpdateBoardArgs>(UPDATE_BOARD)    
 
@@ -38,7 +49,7 @@ export default function BoardWrite(props: BoardWriteProps) {
     }
 
     const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.target.value)
+        setTitle(e.currentTarget.value)
         if(title !== "") {
             setErrTitle("")
         }
@@ -51,8 +62,33 @@ export default function BoardWrite(props: BoardWriteProps) {
         }
     }
 
-   
+    const onClickModal = () => {
+        setIsopen((isopen) => !isopen)
+    }
 
+    const onToggleModal = (): void => {
+        setIsopen((prev)=> !prev)
+    }
+
+    const handleModal = (data: Address) => {
+        console.log("Address", data)
+        setAddress({
+            address: data.address,
+            zonecode: data.zonecode,
+        })
+        onToggleModal()
+    }
+
+    const onChangeAddressDetail = (e: ChangeEvent<HTMLInputElement>) => {
+        setAddressDetail(e.target.value)
+    }
+
+    const onChangeYoutubeUrl = (e: ChangeEvent<HTMLInputElement>) => {
+        const url: string = e.target.value
+        const videoId: string = url.split('v=')[1]
+        setYoutubeUri(videoId)
+    }
+    
     const onClickBtn = async () => {
         if(!name) {
             setErrName("작성자를 작성해주세요.")
@@ -74,12 +110,19 @@ export default function BoardWrite(props: BoardWriteProps) {
                             writer: name,
                             password,
                             title,
-                            contents: content
+                            contents: content,
+                            boardAddress: {
+                                zipcode: address.zonecode,
+                                address: address.address,
+                                addressDetail: addressDetail
+                            },
+                            youtubeUrl
+                            
                             // key==value 같은면 shorthand-propety로 인해서 숨길수 있다.
                         }
                     }
                 })
-                
+                // https://www.youtube.com/watch?v=wv6lh8clJ-M
                 alert("등록하셨습니다.")
                 console.log(result)
                 router.push(`./` + result.data?.createBoard._id)
@@ -103,9 +146,17 @@ export default function BoardWrite(props: BoardWriteProps) {
         }
         if(password) {
             const updateBoardInput: IUpdateBoardInput = {}
-    
+            
+            const updateAddress = {
+                zipcode: address.zonecode,
+                address: address.address,
+                addressDetail: addressDetail
+            }
+            console.log("updateAddress", updateAddress)
             if (title) updateBoardInput.title = title
             if (content) updateBoardInput.contents = content
+            if (address) updateBoardInput.boardAddress = updateAddress
+            if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl
             try {
                 if(typeof router.query.id !== "string") {
                     alert("시스템에 문제가 있습니다.")
@@ -136,14 +187,24 @@ export default function BoardWrite(props: BoardWriteProps) {
         password={password} 
         title={title} 
         content={content} 
+        address={address}
         onChangeName={onChangeName} 
         onChangePassword={onChangePassword} 
         onChangeTitle={onChangeTitle} 
         onChangeContent={onChangeContent} 
         onClickBtn={onClickBtn} 
         onClickUpdate={onClickUpdate} 
+        onClickModal={onClickModal}
+        isOpen={isOpen}
+        handleModal={handleModal}
+        onToggleModal={onToggleModal}
         errName={errName} 
-        errPassword={errPassword} 
+        errPassword={errPassword}
         errTitle={errTitle} 
-        errContent={errContent}/>
+        errContent={errContent}
+        onChangeAddressDetail={onChangeAddressDetail}
+        addressDetail={addressDetail}
+        onChangeYoutubeUrl={onChangeYoutubeUrl}
+        youtubeUrl={youtubeUrl}
+        />
 }

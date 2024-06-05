@@ -4,11 +4,15 @@ import { CREATE_BOARD_COMMENT, FETCH_BOARD_COMMENTS } from "./BoardCommentWrite.
 import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { IMutation, IMutationCreateBoardCommentArgs } from "../../../../../commons/types/generated/types";
+import { Flex, Rate } from 'antd';
 
 export default function BoardCommentWrite() {
 
     const router = useRouter()
 
+    const desc = [1, 2, 3, 4, 5]
+
+    const [rateValue, setRateValue] = useState<number>(0)    
     const [writer, setWriter] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [contents, setContnets] = useState<string>("")
@@ -26,20 +30,23 @@ export default function BoardCommentWrite() {
         setContnets(e.target.value)
     }
 
+    const handleChangeRate = (value: number) => {
+        setRateValue(desc[value -1])
+    }
+
+    console.log("rateValue", rateValue)
     const onClickComment = async() => {
         try {
             if(typeof router.query.id !== "string") {
                 alert("시스템에 문제가 있습니다.")
                 return;
             }
-            console.log("Creating comment with boardId:", router.query.id);
-            console.log("asdasda")
             await createBoardComment({
                 variables: {
                     createBoardCommentInput: {
                         writer,
                         password,
-                        rating : 2,
+                        rating : rateValue,
                         contents,
                     },  
                     boardId: router.query.id
@@ -61,6 +68,9 @@ export default function BoardCommentWrite() {
         onChangeWrite={onChangeWrite} 
         onChangePassword={onChangePassword}
         onChangeContents={onChangeContents} 
-        onClickComment={onClickComment} 
-        contents={contents}/>
+        onClickComment={onClickComment}
+        handleChangeRate={handleChangeRate}
+        rateValue={rateValue}
+        contents={contents}
+        />
 }

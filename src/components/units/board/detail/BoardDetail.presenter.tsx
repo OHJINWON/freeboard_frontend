@@ -1,6 +1,8 @@
 import style from "./detail.module.css";
 import { getDate } from "../../../../commons/libraries/utils"
 import { IBoardDetileUI } from "./BoardDetail.types";
+import YouTube from "react-youtube";
+import { Tooltip } from "antd";
 
 export default function BoardDetailUI(props: IBoardDetileUI) {
 
@@ -23,18 +25,13 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                                 <img src="/link.png"/>
                             </div>
                             <div className={style.addressBox}>    
-                                <img onMouseOver={props.onMouseOverLocation} src="/location.png"/>
+                            <Tooltip title={`${props.data?.fetchBoard.boardAddress.address} ${props.data?.fetchBoard.boardAddress.addressDetail}`} >
+                                <img src="/location.png"/>
+                            </Tooltip>
                             </div>
-                        </div>
-                        {
-                            props.show == true ? <div className={style.address}>
-                            <div>
-                                <p>서울특별시 영등포구 양산로 200</p>
-                                <p>(영등포동5가, 영등포시장역) 영등포 타임스퀘어 2층</p>
-                            </div>
-                            <img src="/addressBox.png"/>
-                        </div> : <div className={style.address}></div>
-                        }
+                        </div>                       
+                        {/* <p>{props.data?.fetchBoard.boardAddress.address}</p> */}
+                                {/* <p>{props.data?.fetchBoard.boardAddress.addressDetail}</p> */}
                     </div>
                     <div className={style.titleBox}>
                         <p>{props.data?.fetchBoard.title}</p>
@@ -44,7 +41,8 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                     </div>
                     <div className={style.contentBox}><p>{props.data?.fetchBoard.contents}</p></div>
                     <div className={style.videoBox}>
-                        <div><img src="/video.png"/></div>
+                        <div><YouTube videoId={props.data?.fetchBoard.youtubeUrl}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/></div>
+                        
                     </div>
                     <div className={style.likeBox}>
                         <div>

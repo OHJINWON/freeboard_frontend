@@ -1,6 +1,8 @@
-
+import React from 'react';
 import { IBoardWriteCommentUIProps } from "./BoardComment.types"
 import style from "./write.module.css"
+import { Flex, Rate } from 'antd';
+
 export default function BoardCommentWirteUI(props: IBoardWriteCommentUIProps) {
 
     return (
@@ -13,7 +15,9 @@ export default function BoardCommentWirteUI(props: IBoardWriteCommentUIProps) {
                     <div>
                         <input className={style.board_box_content_input} type="text" onChange={props.onChangeWrite} placeholder="작성자"/>
                         <input className={style.board_box_content_input} type="password" onChange={props.onChangePassword} placeholder="비밀번호"/>
-                        <input className={style.board_box_content_input} type="text" placeholder="별표"/>
+                        <Flex gap="middle" vertical>
+                            <Rate onChange={props.handleChangeRate} value={props.rateValue}/>
+                        </Flex>
                     </div>
                 </div>
                 <div className={style.board_box_textarea}>

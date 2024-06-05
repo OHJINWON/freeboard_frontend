@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react"
+import React, { ChangeEvent } from "react"
 
 export interface IBoardWriteCommentUIProps {
     onChangeWrite: (e: ChangeEvent<HTMLInputElement>) => void
@@ -6,6 +6,8 @@ export interface IBoardWriteCommentUIProps {
     onChangeContents: (e: ChangeEvent<HTMLTextAreaElement>) => void
     onClickComment: () => void
     contents: string
+    handleChangeRate:(value: number) => void
+    rateValue: number
 }
 
 export interface Imyvariables {

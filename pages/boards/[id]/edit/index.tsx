@@ -11,6 +11,12 @@ const FETCH_BOARD = gql`
             writer
             contents
             createdAt
+            youtubeUrl
+            boardAddress {
+                zipcode
+                address
+                addressDetail
+            }
         }   
     }
 `
@@ -25,6 +31,6 @@ export default function BoardEdit() {
             boardId: router.query.id
         }
     })
-
+    console.log(data?.fetchBoard)
     return <BoardWrite isEdit={true} data={data}/>
 }

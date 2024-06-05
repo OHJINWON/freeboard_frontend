@@ -5,7 +5,7 @@ import { DELETE_BOARD_COMMENT, FETCH_BOARD_COMMENTS } from "./BoardCommentList.q
 import BoardCommentListUI from "./BoardCommentList.presenter";
 import { MouseEvent } from "react";
 export default function BoardCommentList() {
- 
+
     const router = useRouter()
     if(!router || typeof router.query.id !== "string") return <></>
     
@@ -45,5 +45,9 @@ export default function BoardCommentList() {
         }
     }
 
-    return <BoardCommentListUI data={data} onClickDelete={onClickDelete}/>
+    const onClickPrompt = () => {
+        prompt("비밀번호: ")
+    } 
+
+    return <BoardCommentListUI data={data} onClickDelete={onClickDelete} onClickPrompt={onClickPrompt}/>
 }

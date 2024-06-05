@@ -1,8 +1,10 @@
+import React from 'react';
 import Image from "next/image"
 import style from "./list.module.css"
 import profile from "../../../../../../public/profile.png"
 import {getDate} from "../../../../../commons/libraries/utils"
 import { IBoardCommentUI } from "./BoardComment.types"
+import { Rate } from "antd"
 
 export default function BoardCommentListUI (props: IBoardCommentUI) {
     return (
@@ -18,7 +20,8 @@ export default function BoardCommentListUI (props: IBoardCommentUI) {
                                 <div className={style.comment_imformation_box}>
                                     <div className={style.comment_imformation_box_top}>
                                         <p className={style.box_top_write}>{list.writer}</p>
-                                        <p className={style.box_top_rating}>{list.rating}</p>
+                                        {/* <p className={style.box_top_rating}>{list.rating}</p> */}
+                                        <Rate disabled defaultValue={list.rating}/>
                                     </div>
                                     <div className={style.comment_imformation_box_mid}>
                                         <p>{list.contents}</p>
@@ -29,7 +32,7 @@ export default function BoardCommentListUI (props: IBoardCommentUI) {
                                 </div>
                             </div>         
                             <div className={style.comment_btn}>
-                                <button>수정</button>
+                                <button onClick={props.onClickPrompt}>수정</button>
                                 <button onClick={props.onClickDelete} id={list._id}>삭제</button>
                             </div>
                         </div>

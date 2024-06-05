@@ -7,6 +7,12 @@ query fetchBoard($boardId: ID!) {
         title
         contents
         createdAt
+        youtubeUrl
+        boardAddress {
+            zipcode
+            address
+            addressDetail
+        }
     }   
 }
 `
