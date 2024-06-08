@@ -26,21 +26,20 @@ export interface IBoardWritePropsUI {
     isEdit: boolean
     data?: Pick<IQuery, "fetchBoard">
     isActive: boolean
-    onClickModal: () => void
+    onClickAddressSearch: () => void
     isOpen: boolean
-    handleModal(data:Address): void
+    onCompleteAddreSearch(data:Address): void
     onToggleModal: () => void
-    address: IAddress
+    address: string
     onChangeAddressDetail: (e: ChangeEvent<HTMLInputElement>) => void
-    addressDetail: string
     onChangeYoutubeUrl: (e: ChangeEvent<HTMLInputElement>) => void
-    youtubeUrl: string
+    zipcode: string
 }
 
-export interface IAddress {
-    address: string
-    zonecode: string
-}
+// export interface IAddress {
+//     address: string
+//     zonecode: string
+// }
 
 export interface ISubmitButtonProps{
     isActive: boolean

@@ -47,21 +47,21 @@ console.log("props.data?.fetchBoard",props.data?.fetchBoard)
                     <div className={styles.address_box}>
                         <p>주소</p>
                         <div className={styles.address}>
-                            <input className={styles.address_number} type="text" readOnly={true} defaultValue={props.data ? props.data?.fetchBoard.boardAddress.zipcode : props.address.zonecode}/>
+                            <input className={styles.address_number} type="text" readOnly value={props.zipcode === "" ? props.data?.fetchBoard.boardAddress.zipcode : props.zipcode}/>
                             <div>
-                                <input onClick={props.onClickModal} className={styles.address_serch_btn} type="button" value="우편번호 검색"/>
+                                <input onClick={props.onClickAddressSearch} className={styles.address_serch_btn} type="button" value="우편번호 검색"/>
                                 {
                                     props.isOpen && (
-                                        <Modal title="주소검색" open={true} onOk={props.onToggleModal} onCancel={props.onToggleModal}>
-                                            <DaumPostcodeEmbed onComplete={props.handleModal}/>
+                                        <Modal title="주소검색"  open={true} onOk={props.onToggleModal} onCancel={props.onToggleModal}>
+                                            <DaumPostcodeEmbed onComplete={props.onCompleteAddreSearch}/>
                                         </Modal>
                                     )
                                 }
                             </div>
                         </div>
                         <div className={styles.address_box_input}>    
-                            <input type="text" readOnly={props.data ? true : false} defaultValue={props.address.address}/>
-                            <input type="text" onChange={props.onChangeAddressDetail} defaultValue={props.data ? props.data?.fetchBoard.boardAddress.addressDetail : props.addressDetail}/>
+                            <input type="text" readOnly value={props.address !== "" ?  props.address : props.data?.fetchBoard.boardAddress?.address ?? ""}/>
+                            <input type="text" onChange={props.onChangeAddressDetail} defaultValue={ props.data?.fetchBoard.boardAddress?.addressDetail ?? ""}/>
                         </div>
                     </div>
                     <div className={styles.youtube_box}>

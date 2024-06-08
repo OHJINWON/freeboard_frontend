@@ -25,7 +25,8 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                                 <img src="/link.png"/>
                             </div>
                             <div className={style.addressBox}>    
-                            <Tooltip title={`${props.data?.fetchBoard.boardAddress.address} ${props.data?.fetchBoard.boardAddress.addressDetail}`} >
+                            <Tooltip title={`${props.data?.fetchBoard.boardAddress.address ?? ""} 
+                                            ${props.data?.fetchBoard.boardAddress.addressDetail ?? ""}`} >
                                 <img src="/location.png"/>
                             </Tooltip>
                             </div>
@@ -41,7 +42,11 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                     </div>
                     <div className={style.contentBox}><p>{props.data?.fetchBoard.contents}</p></div>
                     <div className={style.videoBox}>
-                        <div><YouTube videoId={props.data?.fetchBoard.youtubeUrl}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/></div>
+                        {
+                            props.data.fetchBoard.youtubeUrl ? 
+                            <div><YouTube  videoId={props.data?.fetchBoard.youtubeUrl}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/></div>
+                            : <div></div>
+                        }
                         
                     </div>
                     <div className={style.likeBox}>
