@@ -122,30 +122,37 @@ export default function BoardWrite(props: BoardWriteProps) {
         }
     }
 
-    const onClickUpdate = async() => {
+    const onClickUpdate = async(): Promise<void> => {
         // retutn는 함수 종료 또는 값을 반환
         // 리팩토링: 결과는 똑같은데, 내용이 더 쉬워짐
         // early-exit 없으면 return으로 종료
-        if(!title && !content) {
+        if (
+            title === "" &&
+            content === "" &&
+            youtubeUrl === "" &&
+            address === "" &&
+            addressDetail === "" &&
+            zipcode === ""
+        ) {
             alert("수정한 내용이 없습니다.")
-            return;
+            return
         }
-        if(!password) {
+        if(password === "") {
             alert("비밀번호를 입력해주세요.")
             return;
         }
         if(password) {
             const updateBoardInput: IUpdateBoardInput = {}
-            const updateAddress = {
-                zipcode,
-                address,
-                addressDetail
-            }
-            console.log("updateAddress", updateAddress)
             if (title) updateBoardInput.title = title
             if (content) updateBoardInput.contents = content
-            if (address) updateBoardInput.boardAddress = updateAddress
             if (youtubeUrl) updateBoardInput.youtubeUrl = youtubeUrl
+            if (zipcode || address || addressDetail) {
+                updateBoardInput.boardAddress = {}
+                if (zipcode) updateBoardInput.boardAddress.zipcode = zipcode
+                if (address) updateBoardInput.boardAddress.addressDetail = addressDetail
+                if (addressDetail) updateBoardInput.boardAddress.addressDetail = addressDetail
+            }
+
             try {
                 if(typeof router.query.id !== "string") {
                     alert("시스템에 문제가 있습니다.")
@@ -155,7 +162,7 @@ export default function BoardWrite(props: BoardWriteProps) {
                     variables: {
                         boardId: router.query.id,
                         password,
-                        updateBoardInput
+                        updateBoardInput,
                     },
                 })
                 console.log("result 수정", result)

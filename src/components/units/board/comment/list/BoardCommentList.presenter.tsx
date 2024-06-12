@@ -4,11 +4,19 @@ import style from "./list.module.css"
 import profile from "../../../../../../public/profile.png"
 import {getDate} from "../../../../../commons/libraries/utils"
 import { IBoardCommentUI } from "./BoardComment.types"
-import { Rate } from "antd"
+import { Modal, Rate } from "antd"
 
 export default function BoardCommentListUI (props: IBoardCommentUI) {
     return (
         <div className={style.board}>
+            {
+                props.isOpenDeleteModal && (
+                    <Modal open={true} onOk={props.onClickDelete}>
+                        <div>비빌번호 입력: </div>
+                        <input type='password' onChange={props.onChangeDeletePassword}/>                        
+                    </Modal>
+                )
+            }
             <div className={style.board_box}>
                 {
                     props.data?.fetchBoardComments.map(list => 
@@ -32,8 +40,8 @@ export default function BoardCommentListUI (props: IBoardCommentUI) {
                                 </div>
                             </div>         
                             <div className={style.comment_btn}>
-                                <button onClick={props.onClickPrompt}>수정</button>
-                                <button onClick={props.onClickDelete} id={list._id}>삭제</button>
+                                <button>수정</button>
+                                <button onClick={props.onClickDeleteModal} id={list._id}>삭제</button>
                             </div>
                         </div>
                     )

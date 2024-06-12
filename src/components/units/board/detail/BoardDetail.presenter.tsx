@@ -43,9 +43,10 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                     <div className={style.contentBox}><p>{props.data?.fetchBoard.contents}</p></div>
                     <div className={style.videoBox}>
                         {
-                            props.data.fetchBoard.youtubeUrl ? 
-                            <div><YouTube  videoId={props.data?.fetchBoard.youtubeUrl}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/></div>
-                            : <div></div>
+                            props.videoId &&
+                            <div>
+                                <YouTube videoId={props.videoId}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/>
+                            </div>
                         }
                         
                     </div>

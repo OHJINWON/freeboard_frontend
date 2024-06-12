@@ -7,4 +7,5 @@ export interface IBoardDetileUI {
     onClickMove: () => void
     onMouseOverLocation: (e: MouseEvent<HTMLElement>) => void
     onClickDelete: () => void
+    videoId: string
 }

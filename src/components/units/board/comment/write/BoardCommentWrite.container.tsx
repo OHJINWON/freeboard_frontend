@@ -10,8 +10,6 @@ export default function BoardCommentWrite() {
 
     const router = useRouter()
 
-    const desc = [1, 2, 3, 4, 5]
-
     const [rateValue, setRateValue] = useState<number>(0)    
     const [writer, setWriter] = useState<string>("")
     const [password, setPassword] = useState<string>("")
@@ -31,11 +29,14 @@ export default function BoardCommentWrite() {
     }
 
     const handleChangeRate = (value: number) => {
-        setRateValue(desc[value -1])
+        setRateValue(value)
     }
 
-    console.log("rateValue", rateValue)
     const onClickComment = async() => {
+        if (!writer && !password && !contents) {
+            alert("입력해주세요.")
+            return;
+        }
         try {
             if(typeof router.query.id !== "string") {
                 alert("시스템에 문제가 있습니다.")
@@ -53,15 +54,19 @@ export default function BoardCommentWrite() {
                 }, refetchQueries: [
                     {
                         query: FETCH_BOARD_COMMENTS,
-                        variables:{ boardId: router.query.id }
+                        variables:{ boardId: router.query.id },
                     },
                 ],
             })
-        
-        alert("댓글이 성공적으로 등록되었습니다.")    
+          
         } catch (error) {
             if(error instanceof Error) alert(error.message)             
         }
+    
+        setWriter("")
+        setPassword("")
+        setContnets("")
+        setRateValue(0)
     }
 
     return <BoardCommentWirteUI 
@@ -71,6 +76,8 @@ export default function BoardCommentWrite() {
         onClickComment={onClickComment}
         handleChangeRate={handleChangeRate}
         rateValue={rateValue}
+        writer={writer}
+        password={password}
         contents={contents}
         />
 }
