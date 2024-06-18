@@ -47,7 +47,6 @@ export default function BoardDetail() {
         }
     }
     
-    
     const onMouseOverLocation = () => {
         setShow(!show)
         // setShow((prev) => !prev);

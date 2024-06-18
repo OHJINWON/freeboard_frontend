@@ -5,7 +5,6 @@ import YouTube from "react-youtube";
 import { Tooltip } from "antd";
 
 export default function BoardDetailUI(props: IBoardDetileUI) {
-
     return(
         <div className={style.board}>
             <div className={style.board_box}>
@@ -25,8 +24,9 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                                 <img src="/link.png"/>
                             </div>
                             <div className={style.addressBox}>    
-                            <Tooltip title={`${props.data?.fetchBoard.boardAddress.address ?? ""} 
-                                            ${props.data?.fetchBoard.boardAddress.addressDetail ?? ""}`} >
+                            <Tooltip title={`
+                                ${props.data?.fetchBoard.boardAddress?.address ?? ""} 
+                                ${props.data?.fetchBoard.boardAddress?.addressDetail ?? ""}`} >
                                 <img src="/location.png"/>
                             </Tooltip>
                             </div>
@@ -48,7 +48,6 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                                 <YouTube videoId={props.videoId}opts={{width: "486",height: "240",playerVars: {autoplay: 1,},}}onEnd={(e)=> {e.target.stopVideo()}}/>
                             </div>
                         }
-                        
                     </div>
                     <div className={style.likeBox}>
                         <div>
@@ -60,7 +59,6 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <div className={style.btn_list}>
                     <div>
