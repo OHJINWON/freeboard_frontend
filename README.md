@@ -29,6 +29,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 │ ├── detail/
 │ ├── list/
 │ └── write/](image-2.png)
+
 ![pages/
 ├── boards/
 │ ├── [id]/
