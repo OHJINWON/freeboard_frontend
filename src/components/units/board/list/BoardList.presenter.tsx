@@ -35,7 +35,7 @@ export default function BoardListUI (props:IBoardListUI) {
                         <input type="date" placeholder="달력"/>
                         <button>검색하기</button>
                     </div>
-                    <table>
+                    <table className={styles.table}>
                         <thead>
                             <tr>
                                 <th>번호</th>

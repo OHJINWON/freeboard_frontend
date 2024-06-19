@@ -14,6 +14,11 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 - **react-youtube:** YouTube 동영상을 React 컴포넌트로 쉽게 임베드합니다.
 - **ts-node:** TypeScript 파일을 직접 실행할 수 있게 하는 Node.js 도구.
 
+## 프로젝트 구동
+![board 리스트 페이지](image-4.png)
+![상세 페이지](image-5.png)
+![상세 페이지2](image-6.png)
+
 ## 프로젝트 구조
 ![src/
 ├── commons/

@@ -22,8 +22,6 @@ export default function BoardList() {
         router.push(`/boards/${e.currentTarget.id}`)
     }
 
-
-    
     return (
         <BoardListUI 
             data={data} 

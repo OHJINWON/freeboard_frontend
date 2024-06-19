@@ -95,7 +95,6 @@
 .serch_box {
     width: 100%;
     height: 100%;
-    background: yellow;
     padding: 60px 0 40px;
     display: flex;
     flex-direction: row;
@@ -122,4 +121,34 @@
     line-height: 23.68px;
     color: black;
     font-size: 16px;
+}
+.table {
+    width: 100%;
+    height: 100%;
+}
+.table tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+/* .table tr > th:nth-child(1) {
+    width: 340px;
+    text-align: center;
+    border: 1px solid #000;
+} */
+.table tr > th {
+    flex-basis: 240px;
+    flex-grow: 1;
+    text-align: center;
+}
+.table tr > th:nth-child(2) {
+    flex-grow: 10;
+}
+.table tr > td {
+    flex-basis: 240px;
+    flex-grow: 1;
+    text-align: center;
+}
+.table tr > td:nth-child(2) {
+    flex-grow: 12;
 }
