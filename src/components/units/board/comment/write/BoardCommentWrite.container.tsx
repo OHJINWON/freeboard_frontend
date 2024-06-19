@@ -14,6 +14,7 @@ export default function BoardCommentWrite() {
     const [writer, setWriter] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [contents, setContnets] = useState<string>("")
+    const [textareaCount, setTextareaCount] = useState(0)
 
     const [createBoardComment] = useMutation<Pick<IMutation, "createBoardComment">, IMutationCreateBoardCommentArgs>(CREATE_BOARD_COMMENT)
 
@@ -26,6 +27,7 @@ export default function BoardCommentWrite() {
 
     const onChangeContents = (e: ChangeEvent<HTMLTextAreaElement>) => {
         setContnets(e.target.value)
+        setTextareaCount(e.target.value.length)
     }
 
     const handleChangeRate = (value: number) => {
@@ -79,5 +81,6 @@ export default function BoardCommentWrite() {
         writer={writer}
         password={password}
         contents={contents}
+        textareaCount={textareaCount}
         />
 }

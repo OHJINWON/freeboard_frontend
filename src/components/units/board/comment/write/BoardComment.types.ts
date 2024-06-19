@@ -10,4 +10,5 @@ export interface IBoardWriteCommentUIProps {
     contents: string
     handleChangeRate:(value: number) => void
     rateValue: number
+    textareaCount: number
 }
