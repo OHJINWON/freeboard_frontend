@@ -15,20 +15,20 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 - **ts-node:** TypeScript 파일을 직접 실행할 수 있게 하는 Node.js 도구.
 
 ## 프로젝트 구동
-![board 리스트 페이지](image-4.png)
-![상세 페이지01](image-5.png)
-![상세 페이지02](image-6.png)
-![상세 페이지 댓글](image-7.png)
-![상세 페이지 댓글 리스트](image-8.png)
-![댓글 삭제 modal](image-9.png)![댓글 삭제 완료](image-10.png)
-![게시물 수정 페이지01](image-11.png)
-![게시물 수정 페이지02](image-12.png)
-![수정 없음](image-13.png)
-![주소변경](image-14.png)
-![수정완료](image-15.png)
-![변경된 주소](image-16.png)
-![게시글 삭제](image-17.png)
-![게시글 삭제 리스트](image-18.png)
+![board 리스트 페이지](/public/image-4.png)
+![상세 페이지01](/public/image-5.png)
+![상세 페이지02](/public/image-6.png)
+![상세 페이지 댓글](/public/image-7.png)
+![상세 페이지 댓글 리스트](/public/image-8.png)
+![댓글 삭제 modal](/public/image-9.png)![댓글 삭제 완료](/public/image-10.png)
+![게시물 수정 페이지01](/public/image-11.png)
+![게시물 수정 페이지02](/public/image-12.png)
+![수정 없음](/public/image-13.png)
+![주소변경](/public/image-14.png)
+![수정완료](/public/image-15.png)
+![변경된 주소](/public/image-16.png)
+![게시글 삭제](/public/image-17.png)
+![게시글 삭제 리스트](/public/image-18.png)
 
 ## 프로젝트 구조
 ![src/
@@ -44,7 +44,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 │ │ └── write/
 │ ├── detail/
 │ ├── list/
-│ └── write/](image-2.png)
+│ └── write/](/public/image-2.png)
 
 ![pages/
 ├── boards/
@@ -57,7 +57,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 │ ├── new/
 │ │ └── index.tsx
 ├── _app.tsx
-├── index.tsx](image-3.png)
+├── index.tsx](/public/image-3.png)
 
 ### 폴더 구조 설명
 - **src/commons:**
