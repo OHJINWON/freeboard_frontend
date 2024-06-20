@@ -69,6 +69,7 @@ export default function BoardCommentWrite() {
         setPassword("")
         setContnets("")
         setRateValue(0)
+        setTextareaCount(0)
     }
 
     return <BoardCommentWirteUI 

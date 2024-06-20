@@ -74,7 +74,7 @@ export default function BoardWrite(props: BoardWriteProps) {
     }
 
     const onCompleteAddreSearch = (data: Address): void => {
-        console.log("Address", data)
+        // console.log("Address", data)
         setAddress(data.address)
         setZipcode(data.zonecode)
         setIsopen((prev)=> !prev)
@@ -112,9 +112,7 @@ export default function BoardWrite(props: BoardWriteProps) {
                         }
                     }
                 })
-                // https://www.youtube.com/watch?v=wv6lh8clJ-M
                 alert("등록하셨습니다.")
-                console.log(result)
                 router.push(`./` + result.data?.createBoard._id)
             } catch (error) {
                 alert(error)
@@ -149,10 +147,9 @@ export default function BoardWrite(props: BoardWriteProps) {
             if (zipcode || address || addressDetail) {
                 updateBoardInput.boardAddress = {}
                 if (zipcode) updateBoardInput.boardAddress.zipcode = zipcode
-                if (address) updateBoardInput.boardAddress.addressDetail = addressDetail
+                if (address) updateBoardInput.boardAddress.address = address
                 if (addressDetail) updateBoardInput.boardAddress.addressDetail = addressDetail
             }
-
             try {
                 if(typeof router.query.id !== "string") {
                     alert("시스템에 문제가 있습니다.")
@@ -165,7 +162,6 @@ export default function BoardWrite(props: BoardWriteProps) {
                         updateBoardInput,
                     },
                 })
-                console.log("result 수정", result)
                 alert("수정하셨습니다.")
                 router.push(`/boards/${router.query.id}`)
             } catch (error) {

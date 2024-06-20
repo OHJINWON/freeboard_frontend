@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import BoardWriteUI from "./BoardWrite.presenter"
 import { CREATE_BOARD, UPDATE_BOARD } from './BoardWrite.queries'
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types"
-import { IAddress, BoardWriteProps } from "./BoardWrite.types"
+import { BoardWriteProps } from "./BoardWrite.types"
 import { Address } from "react-daum-postcode"
 
 
@@ -23,12 +23,12 @@ export default function BoardWrite(props: BoardWriteProps) {
     const [errContent, setErrContent] = useState<string>("")
 
     const [isOpen, setIsopen] = useState<boolean>(false)
-    const [address, setAddress] = useState<IAddress>(
-        {
-            address: "",
-            zonecode: "",
-        }
-    )
+    // const [address, setAddress] = useState<IAddress>(
+    //     {
+    //         address: "",
+    //         zonecode: "",
+    //     }
+    // )
     const [addressDetail, setAddressDetail] = useState<string>("")
     const [youtubeUrl, setYoutubeUri] = useState<string>("")
     const [createBoard] = useMutation<Pick<IMutation, "createBoard">, IMutationCreateBoardArgs>(CREATE_BOARD)

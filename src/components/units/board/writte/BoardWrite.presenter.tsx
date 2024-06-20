@@ -5,8 +5,6 @@ import { IBoardWritePropsUI } from "./BoardWrite.types"
 import { Modal } from "antd"
 
 export default function BoardWriteUI(props: IBoardWritePropsUI) {
-console.log("props", props)
-console.log("props.data?.fetchBoard",props.data?.fetchBoard)
     return(
         <div className={styles.board_box}>
             {/* 밑에 */}
