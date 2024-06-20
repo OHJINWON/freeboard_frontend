@@ -16,8 +16,19 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 
 ## 프로젝트 구동
 ![board 리스트 페이지](image-4.png)
-![상세 페이지](image-5.png)
-![상세 페이지2](image-6.png)
+![상세 페이지01](image-5.png)
+![상세 페이지02](image-6.png)
+![상세 페이지 댓글](image-7.png)
+![상세 페이지 댓글 리스트](image-8.png)
+![댓글 삭제 modal](image-9.png)![댓글 삭제 완료](image-10.png)
+![게시물 수정 페이지01](image-11.png)
+![게시물 수정 페이지02](image-12.png)
+![수정 없음](image-13.png)
+![주소변경](image-14.png)
+![수정완료](image-15.png)
+![변경된 주소](image-16.png)
+![게시글 삭제](image-17.png)
+![게시글 삭제 리스트](image-18.png)
 
 ## 프로젝트 구조
 ![src/
