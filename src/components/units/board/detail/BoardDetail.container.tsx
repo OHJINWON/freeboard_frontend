@@ -57,6 +57,10 @@ export default function BoardDetail() {
         router.push(`/boards/${router.query.id}/edit`) 
     }
 
+    const onClickListMove = () => {
+        router.push("/boards/list")
+    }
+
     return <BoardDetailUI 
         show={show}
         onClickMove={onClickMove}
@@ -64,5 +68,6 @@ export default function BoardDetail() {
         onMouseOverLocation={onMouseOverLocation}
         onClickDelete={onClickDelete}
         videoId={videoId}
+        onClickListMove={onClickListMove}
         />
 }

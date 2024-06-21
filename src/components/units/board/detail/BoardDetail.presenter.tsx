@@ -38,7 +38,7 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                         <p>{props.data?.fetchBoard.title}</p>
                     </div>
                     <div className={style.imgBox}>
-                        <img src="/image.png"/>
+                        {/* <img src="/image.png"/> */}
                     </div>
                     <div className={style.contentBox}><p>{props.data?.fetchBoard.contents}</p></div>
                     <div className={style.videoBox}>
@@ -62,7 +62,7 @@ export default function BoardDetailUI(props: IBoardDetileUI) {
                 </div>
                 <div className={style.btn_list}>
                     <div>
-                        <button>목록으로</button>
+                        <button onClick={props.onClickListMove}>목록으로</button>
                         <button onClick={props.onClickMove}>수정하러가기</button>
                         <button onClick={props.onClickDelete}>삭제하기</button>
                     </div>
