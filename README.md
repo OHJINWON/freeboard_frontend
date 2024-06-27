@@ -43,6 +43,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 ![게시글 삭제](/public/image-17.png)
 **게시글 리스트 삭제**
 ![게시글 삭제 리스트](/public/image-18.png)
+**GIF**
 ![동작하는gif](/public/page.gif)
 ## 프로젝트 구조
 ![src/
