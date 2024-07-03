@@ -21,6 +21,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 
 **상세 페이지**
 ![상세 페이지01](/public/image-5.png)
+
 ![상세 페이지02](/public/image-6.png)
 
 **댓글 입력**
@@ -37,6 +38,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 
 **게시물 수정 페이지**
 ![게시물 수정 페이지01](/public/image-11.png)
+
 ![게시물 수정 페이지02](/public/image-12.png)
 
 **수정 변경 사항 없으면 나오는 알림창**
@@ -59,6 +61,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 
 **GIF**
 ![동작하는gif](/public/page.gif)
+
 ## 프로젝트 구조
 ![src/
 ├── commons/
