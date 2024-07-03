@@ -17,49 +17,61 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 ## 프로젝트 구동
 
 **board 리스트 페이지**
+
 ![board 리스트 페이지](/public/image-4.png)
 
 **상세 페이지**
-![상세 페이지01](/public/image-5.png)
 
+![상세 페이지01](/public/image-5.png)
 ![상세 페이지02](/public/image-6.png)
 
 **댓글 입력**
+
 ![상세 페이지 댓글](/public/image-7.png)
 
 **댓글 입력 완료**
+
 ![상세 페이지 댓글 리스트](/public/image-8.png)
 
 **댓글 삭제 모달창**
+
 ![댓글 삭제 modal](/public/image-9.png)
 
 **댓글 삭제 완료**
+
 ![댓글 삭제 완료](/public/image-10.png)
 
 **게시물 수정 페이지**
-![게시물 수정 페이지01](/public/image-11.png)
 
+![게시물 수정 페이지01](/public/image-11.png)
 ![게시물 수정 페이지02](/public/image-12.png)
 
 **수정 변경 사항 없으면 나오는 알림창**
+
 ![수정 없음](/public/image-13.png)
 
 **DaumPostcodeEmbed 이용해 주소 수정**
+
 ![주소변경](/public/image-14.png)
 
 **수정 완료 알림창**
+
 ![수정완료](/public/image-15.png)
 
 **상세 페이지 주소 변경**
+
 ![변경된 주소](/public/image-16.png)
 
 **게시글 삭제 알림창**
+
 ![게시글 삭제](/public/image-17.png)
 
 **게시글 리스트 삭제**
+
 ![게시글 삭제 리스트](/public/image-18.png)
 
 **GIF**
+
 ![동작하는gif](/public/page.gif)
 
 ## 프로젝트 구조
