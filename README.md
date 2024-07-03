@@ -15,34 +15,48 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 - **ts-node:** TypeScript 파일을 직접 실행할 수 있게 하는 Node.js 도구.
 
 ## 프로젝트 구동
+
 **board 리스트 페이지**
 ![board 리스트 페이지](/public/image-4.png)
+
 **상세 페이지**
 ![상세 페이지01](/public/image-5.png)
 ![상세 페이지02](/public/image-6.png)
+
 **댓글 입력**
 ![상세 페이지 댓글](/public/image-7.png)
+
 **댓글 입력 완료**
 ![상세 페이지 댓글 리스트](/public/image-8.png)
+
 **댓글 삭제 모달창**
 ![댓글 삭제 modal](/public/image-9.png)
+
 **댓글 삭제 완료**
 ![댓글 삭제 완료](/public/image-10.png)
+
 **게시물 수정 페이지**
 ![게시물 수정 페이지01](/public/image-11.png)
 ![게시물 수정 페이지02](/public/image-12.png)
+
 **수정 변경 사항 없으면 나오는 알림창**
 ![수정 없음](/public/image-13.png)
+
 **DaumPostcodeEmbed 이용해 주소 수정**
 ![주소변경](/public/image-14.png)
+
 **수정 완료 알림창**
 ![수정완료](/public/image-15.png)
+
 **상세 페이지 주소 변경**
 ![변경된 주소](/public/image-16.png)
+
 **게시글 삭제 알림창**
 ![게시글 삭제](/public/image-17.png)
+
 **게시글 리스트 삭제**
 ![게시글 삭제 리스트](/public/image-18.png)
+
 **GIF**
 ![동작하는gif](/public/page.gif)
 ## 프로젝트 구조
@@ -96,7 +110,7 @@ Frontend Board는 Next.js를 기반으로 한 게시판 입니다. 이 프로젝
 - **_app.tsx:** 모든 페이지에 공통으로 적용되는 설정.
 - **index.tsx:** 메인 페이지.
 
-## 라이브러리 설명
+### 라이브러리 설명
 - **@ant-design/icons, antd:** UI 라이브러리로 다양한 컴포넌트와 아이콘을 제공.
 - **@apollo/client:** GraphQL 클라이언트로, GraphQL API와 상호작용.
 - **@emotion/react, @emotion/styled:** CSS-in-JS 라이브러리로 스타일을 작성.
